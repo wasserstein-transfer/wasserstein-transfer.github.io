@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Wasserstein Style Transfer</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Maryam Ashoori">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=RobotoLight);
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+
+      /* Create two equal columns that sits next to each other */
+      .column-right {
+        padding: 40px;
+        flex: 50%;
+        height: 600px;
+      }
+
+      .column-left {
+        padding: 40px;
+        flex: 50%;
+        height: 600px;
+      }
+    
+      .row {
+        display: flex;
+      }
+
+      .banner {
+        height: 80px;
+        padding: 30px;
+      }
+
+      .footer {
+        height: 200px;
+        padding: 50px;
+        padding-top: 50px;
+        display: flex;
+        background-color: #FFFFFF;
+        color: #000000;
+      }
+
+      .footer_column-left {
+        flex: 40%;
+        padding: 10px;
+      }
+
+       .footer_column-right {
+        flex: 60%;
+        padding: 30px;
+        font-size: 20px;
+        font-weight: 200;
+      }
+
+      .dark_blue {
+        background-color: #011689;
+        color: #efefef;
+      }
+
+      .black{
+        background-color: #000000;
+        color: #efefef;
+      }
+
+      .grid{
+        border="0";
+        padding-top: 30px;
+        padding: 40px;
+      }
+
+      .grid_cell{
+         width: 100px;
+         height: 95px;
+         background-color:#4A4A4A;
+      }
+
+      .grid_cell:hover 
+      {
+        background-color:#011689;
+      }
+
+      .corner_1{
+        background: url(img/corner_1.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+
+      .corner_2{
+        background: url(img/corner_2.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+
+      .corner_3{
+        background: url(img/corner_3.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .corner_4{
+        background: url(img/corner_4.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row dark_blue banner">
+        <h1>Wasserstein Style Transfer</h1><a href="https://arxiv.org/abs/1905.12828">[arxiv paper]</a>
+    </div>
+    <div class="row ">
+      <div class="column-left" style="background-color:black">
+        <table class= "grid">
+          <tr id="tr1">
+             <td class ="grid_cell corner_1"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell corner_2"> </td>
+          </tr>
+          <tr>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+          </tr>
+          <tr>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+          </tr>
+          <tr>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+          </tr>
+          <tr>
+             <td class ="grid_cell corner_3"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell"> </td>
+             <td class ="grid_cell corner_4"> </td>
+          </tr>
+        </table>
+      </div>
+      <div class="column-right" style="background-color:#bbb; background-repeat: no-repeat; background-size: 100% 100%;" id="im">
+      </div>
+    </div>
+    <div class="footer">
+        <div class="footer_column_left">
+            <h1> How does it work? </h1>
+        </div>
+        <div class="footer_column-right">
+        <p>Wasserstein Style Transfer is a Gaussian optimal transport for image style transfer in an Encoder/Decoder framework. Optimal transport for Gaussian measures has closed forms Monge mappings from source to target distributions. Interpolates between a content and a style image can be seen as geodesics in the Wasserstein Geometry. This page demonstrates how to mix different target styles using Wasserstein barycenter of Gaussian measures.
+        <br>
+        For further details, please check out the paper: https://arxiv.org/abs/1905.12828<br><br><br>
+        </div>
+    </div>
+    <div>
+           
+            <br><br><br>
+        </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+    jQuery(function($){
+        $('tr:nth-child(1) td:nth-child(1)').mouseenter(function(){
+            $(im).css("background-image", "url(img/corner_1.jpg)"); 
+
+        });
+
+        $('tr:nth-child(1) td:nth-child(2)').mouseenter(function(){
+            $(im).css("background-image", "url(img/2.jpg)"); 
+
+        });
+
+        $('tr:nth-child(1) td:nth-child(3)').mouseenter(function(){
+            $(im).css("background-image", "url(img/3.jpg)"); 
+
+        });
+
+        $('tr:nth-child(1) td:nth-child(4)').mouseenter(function(){
+            $(im).css("background-image", "url(img/4.jpg)"); 
+
+        });
+
+        $('tr:nth-child(1) td:nth-child(5)').mouseenter(function(){
+            $(im).css("background-image", "url(img/corner_2.jpg)"); 
+
+        });
+
+        $('tr:nth-child(2) td:nth-child(1)').mouseenter(function(){
+            $(im).css("background-image", "url(img/6.jpg)"); 
+
+        });
+
+        $('tr:nth-child(2) td:nth-child(2)').mouseenter(function(){
+            $(im).css("background-image", "url(img/7.jpg)"); 
+
+        });
+
+        $('tr:nth-child(2) td:nth-child(3)').mouseenter(function(){
+            $(im).css("background-image", "url(img/8.jpg)"); 
+
+        });
+
+        $('tr:nth-child(2) td:nth-child(4)').mouseenter(function(){
+            $(im).css("background-image", "url(img/9.jpg)"); 
+
+        });
+
+        $('tr:nth-child(2) td:nth-child(5)').mouseenter(function(){
+            $(im).css("background-image", "url(img/10.jpg)"); 
+
+        });
+
+        $('tr:nth-child(3) td:nth-child(1)').mouseenter(function(){
+            $(im).css("background-image", "url(img/11.jpg)"); 
+
+        });
+
+        $('tr:nth-child(3) td:nth-child(2)').mouseenter(function(){
+            $(im).css("background-image", "url(img/12.jpg)"); 
+
+        });
+
+        $('tr:nth-child(3) td:nth-child(3)').mouseenter(function(){
+            $(im).css("background-image", "url(img/13.jpg)"); 
+
+        });
+
+        $('tr:nth-child(3) td:nth-child(4)').mouseenter(function(){
+            $(im).css("background-image", "url(img/14.jpg)"); 
+
+        });
+
+        $('tr:nth-child(3) td:nth-child(5)').mouseenter(function(){
+            $(im).css("background-image", "url(img/15.jpg)"); 
+
+        });
+
+        $('tr:nth-child(4) td:nth-child(1)').mouseenter(function(){
+            $(im).css("background-image", "url(img/16.jpg)"); 
+
+        });
+        
+        $('tr:nth-child(4) td:nth-child(2)').mouseenter(function(){
+            $(im).css("background-image", "url(img/17.jpg)"); 
+
+        });
+
+        $('tr:nth-child(4) td:nth-child(3)').mouseenter(function(){
+            $(im).css("background-image", "url(img/18.jpg)"); 
+
+        });
+
+        $('tr:nth-child(4) td:nth-child(4)').mouseenter(function(){
+            $(im).css("background-image", "url(img/19.jpg)"); 
+
+        });
+
+        $('tr:nth-child(4) td:nth-child(5)').mouseenter(function(){
+            $(im).css("background-image", "url(img/20.jpg)"); 
+
+        });
+
+        $('tr:nth-child(5) td:nth-child(1)').mouseenter(function(){
+            $(im).css("background-image", "url(img/corner_3.jpg)"); 
+
+        });
+
+        $('tr:nth-child(5) td:nth-child(2)').mouseenter(function(){
+            $(im).css("background-image", "url(img/22.jpg)"); 
+
+        });
+
+        $('tr:nth-child(5) td:nth-child(3)').mouseenter(function(){
+            $(im).css("background-image", "url(img/23.jpg)"); 
+
+        });
+
+        $('tr:nth-child(5) td:nth-child(4)').mouseenter(function(){
+            $(im).css("background-image", "url(img/24.jpg)"); 
+
+        });
+
+        $('tr:nth-child(5) td:nth-child(5)').mouseenter(function(){
+            $(im).css("background-image", "url(img/corner_4.jpg)"); 
+
+        });
+       
+        $('tr td').mouseleave(function(){
+            //$(im).css("background-image", 'none'); 
+        });
+    });
+    </script>
+  </body>
+</html>
