@@ -16,6 +16,16 @@
         font-family: 'Roboto', sans-serif;
       }
 
+      a:link, a:visited { 
+        color:#26BFEF;
+        text-decoration: underline;
+        cursor: auto;
+      }
+
+      a:link:active, a:visited:active { 
+      color:green;
+      }
+
       /* Create two equal columns that sits next to each other */
       .column-right {
         padding: 40px;
@@ -38,8 +48,12 @@
         padding: 30px;
       }
 
+      .credit {
+        height: 30px;
+        padding: 30px;
+      }
+
       .footer {
-        height: 200px;
         padding: 50px;
         padding-top: 50px;
         display: flex;
@@ -79,6 +93,7 @@
          width: 100px;
          height: 95px;
          background-color:#4A4A4A;
+         background-repeat: no-repeat; background-size: 100% 100%;
       }
 
       .grid_cell:hover 
@@ -163,41 +178,48 @@
         </div>
         <div class="footer_column-right">
         <p>Wasserstein Style Transfer is a Gaussian optimal transport for image style transfer in an Encoder/Decoder framework. Optimal transport for Gaussian measures has closed forms Monge mappings from source to target distributions. Interpolates between a content and a style image can be seen as geodesics in the Wasserstein Geometry. This page demonstrates how to mix different target styles using Wasserstein barycenter of Gaussian measures.
-        <br>
-        For further details, please check out the paper: https://arxiv.org/abs/1905.12828<br><br><br>
+        <br><br>
+        For further details, please check out the paper: https://arxiv.org/abs/1905.12828<br><br>
+        Related work:<br><br>
+        Li, Y., Fang, C., Yang, J., Wang, Z., Lu, X., and Yang, M. H. (2017). Universal style transfer via feature transforms. In Advances in neural information processing systems (pp. 386-396).<br><br>
+        Huang, X., and Belongie, S. (2017). Arbitrary style transfer in real-time with adaptive instance normalization. In Proceedings of the IEEE International Conference on Computer Vision (pp. 1501-1510). 
         </div>
     </div>
-    <div><br><br><br></div>
+    <div class="row dark_blue credit">
+        Demo created by&nbsp<a href="http://maryam.ashoori.org"> Maryam Ashoori </a>&nbspat IBM Research AI, 2019
+    </div>
+    
     <script>
         document.getElementById('r1c1').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/corner_1.jpg)";}, false);
-        document.getElementById('r1c2').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/2.jpg)";}, false);
-        document.getElementById('r1c3').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/3.jpg)";}, false);
-        document.getElementById('r1c4').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/4.jpg)";}, false);
+        document.getElementById('r1c2').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/2.jpg)"; document.getElementById("r1c2").style.backgroundImage = "url(img/2.jpg)";}, false);
+        document.getElementById('r1c3').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/3.jpg)"; document.getElementById("r1c3").style.backgroundImage = "url(img/3.jpg)";}, false);
+        document.getElementById('r1c4').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/4.jpg)"; document.getElementById("r1c4").style.backgroundImage = "url(img/4.jpg)";}, false);
         document.getElementById('r1c5').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/corner_2.jpg)";}, false);
 
-        document.getElementById('r2c1').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/6.jpg)";}, false);
-        document.getElementById('r2c2').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/7.jpg)";}, false);
-        document.getElementById('r2c3').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/8.jpg)";}, false);
-        document.getElementById('r2c4').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/9.jpg)";}, false);
-        document.getElementById('r2c5').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/10.jpg)";}, false);
+        document.getElementById('r2c1').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/6.jpg)"; document.getElementById("r2c1").style.backgroundImage = "url(img/6.jpg)";}, false);
+        document.getElementById('r2c2').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/7.jpg)"; document.getElementById("r2c2").style.backgroundImage = "url(img/7.jpg)";}, false);
+        document.getElementById('r2c3').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/8.jpg)"; document.getElementById("r2c3").style.backgroundImage = "url(img/8.jpg)";}, false);
+        document.getElementById('r2c4').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/9.jpg)"; document.getElementById("r2c4").style.backgroundImage = "url(img/9.jpg)";}, false);
+        document.getElementById('r2c5').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/10.jpg)"; document.getElementById("r2c5").style.backgroundImage = "url(img/10.jpg)";}, false);
 
-        document.getElementById('r3c1').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/11.jpg)";}, false);
-        document.getElementById('r3c2').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/12.jpg)";}, false);
-        document.getElementById('r3c3').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/13.jpg)";}, false);
-        document.getElementById('r3c4').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/14.jpg)";}, false);
-        document.getElementById('r3c5').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/15.jpg)";}, false);
+        document.getElementById('r3c1').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/11.jpg)"; document.getElementById("r3c1").style.backgroundImage = "url(img/11.jpg)";}, false);
+        document.getElementById('r3c2').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/12.jpg)"; document.getElementById("r3c2").style.backgroundImage = "url(img/12.jpg)";}, false);
+        document.getElementById('r3c3').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/13.jpg)"; document.getElementById("r3c3").style.backgroundImage = "url(img/13.jpg)";}, false);
+        document.getElementById('r3c4').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/14.jpg)"; document.getElementById("r3c4").style.backgroundImage = "url(img/14.jpg)";}, false);
+        document.getElementById('r3c5').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/15.jpg)"; document.getElementById("r3c5").style.backgroundImage = "url(img/15.jpg)";}, false);
 
-        document.getElementById('r4c1').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/16.jpg)";}, false);
-        document.getElementById('r4c2').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/17.jpg)";}, false);
-        document.getElementById('r4c3').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/18.jpg)";}, false);
-        document.getElementById('r4c4').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/19.jpg)";}, false);
-        document.getElementById('r4c5').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/20.jpg)";}, false);
+        document.getElementById('r4c1').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/16.jpg)"; document.getElementById("r4c1").style.backgroundImage = "url(img/16.jpg)";}, false);
+        document.getElementById('r4c2').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/17.jpg)"; document.getElementById("r4c2").style.backgroundImage = "url(img/17.jpg)";}, false);
+        document.getElementById('r4c3').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/18.jpg)"; document.getElementById("r4c3").style.backgroundImage = "url(img/18.jpg)";}, false);
+        document.getElementById('r4c4').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/19.jpg)";  document.getElementById("r4c4").style.backgroundImage = "url(img/19.jpg)";}, false);
+        document.getElementById('r4c5').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/20.jpg)"; document.getElementById("r4c5").style.backgroundImage = "url(img/20.jpg)";}, false);
+
 
         document.getElementById('r5c1').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/corner_3.jpg)";}, false);
-        document.getElementById('r5c2').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/22.jpg)";}, false);
-        document.getElementById('r5c3').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/23.jpg)";}, false);
-        document.getElementById('r5c4').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/24.jpg)";}, false);
-        document.getElementById('r5c5').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/corner_4.jpg)";}, false);
+        document.getElementById('r5c2').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/22.jpg)"; document.getElementById("r5c2").style.backgroundImage = "url(img/22.jpg)";}, false);
+        document.getElementById('r5c3').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/23.jpg)"; document.getElementById("r5c3").style.backgroundImage = "url(img/23.jpg)";}, false);
+        document.getElementById('r5c4').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/24.jpg)"; document.getElementById("r5c4").style.backgroundImage = "url(img/24.jpg)";}, false);
+        document.getElementById('r5c5').addEventListener("mouseover", function() {document.getElementById("im").style.backgroundImage = "url(img/corner_4.jpg)"; }, false);
     </script>
   </body>
 </html>
